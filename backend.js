@@ -6,3 +6,24 @@ const app = express();
 
 app.use(cors()); 
 app.use(express.json());
+
+// save employee
+app.post("/employees", async (req, res) => {
+  try {
+    const { name, email, salary, department } = req.body;
+
+    await pool.query(
+      `INSERT INTO employees(name, email, salary, department)
+             VALUES($1, $2, $3, $4)`,
+      [name, email, salary, department],
+    );
+
+    res.status(201).json({
+      success: true,
+      message: "Employee saved successfully",
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err.message);
+  }
+});
