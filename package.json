@@ -1,5 +1,5 @@
 {
-  "name": "node-vercel-postgress",
+  "name": "vercel-postgress",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "ISC", 
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
