@@ -27,3 +27,17 @@ app.post("/employees", async (req, res) => {
     res.status(500).json(err.message);
   }
 });
+
+// get all employees
+app.get("/employees", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM employees ORDER BY id");
+
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err.message);
+  }
+});
+
+module.exports = app;
